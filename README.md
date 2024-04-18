@@ -24,6 +24,14 @@ To make this more systematic and much more powerful, **DSPy** does two things. F
 
 **DSPy** can routinely teach powerful models like `GPT-3.5` or `GPT-4` and local models like `T5-base` or `Llama2-13b` to be much more reliable at tasks, i.e. having higher quality and/or avoiding specific failure patterns. **DSPy** optimizers will "compile" the _same_ program into _different_ instructions, few-shot prompts, and/or weight updates (finetunes) for each LM. This is a new paradigm in which LMs and their prompts fade into the background as optimizable pieces of a larger system that can learn from data. **tldr;** less prompting, higher scores, and a more systematic approach to solving hard tasks with LMs.
 
+**DSPy 是一个框架，用于算法化地优化语言模型（LM）的提示和权重**，尤其是在管道中一次或多次使用LM时。如果不使用DSPy来使用LM构建复杂系统，你通常需要：(1) 将问题分解为步骤，(2) 精心提示你的LM，直到每个步骤独立工作良好，(3) 调整步骤以协同工作，(4) 生成合成示例以调整每个步骤，以及(5) 使用这些示例微调较小的LM以降低成本。目前，这个过程既困难又混乱：每次你更改你的管道、LM或数据时，所有的提示（或微调步骤）可能都需要改变。
+
+为了让这个过程更加系统化，并且更加强大，DSPy做了两件事。首先，它将程序的流程（模块）与每个步骤的参数（LM提示和权重）分离。其次，DSPy引入了新的优化器，这些是由LM驱动的算法，可以在给定你想要最大化的指标的情况下，调整LM调用的提示和/或权重。
+
+DSPy可以常规地教会像GPT-3.5或GPT-4这样的强大模型，以及像T5-base或Llama2-13b这样的本地模型，在任务上更加可靠，即具有更高的质量和/或避免特定的故障模式。DSPy优化器将为每个LM“编译”相同的程序成不同的指令、少量示例提示和/或权重更新（微调）。这是一种新的范式，在这种范式中，LM及其提示作为更大系统中可优化的部分退居幕后，该系统可以从数据中学习。
+
+简而言之；更少的提示，更高的分数，以及使用LM解决难题的更系统化方法。
+
 
 ### Table of Contents
 
